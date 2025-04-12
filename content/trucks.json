@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Isuzu NPR 71",
+    "type": "truck",
+    "price": 1200000,
+    "year": 2018,
+    "featured": true,
+    "images": ["img/1.jpg", "img/2.jpg"]
+  },
+  {
+    "id": 2,
+    "name": "Mitsubishi Fuso",
+    "type": "lorry",
+    "price": 1800000,
+    "year": 2017,
+    "featured": true,
+    "images": ["img/3.jpg", "img/4.jpg"]
+  },
+  {
+    "id": 3,
+    "name": "sample vehicle",
+    "type": "truck",
+    "price": 3500000,
+    "year": 2019,
+    "featured": false,
+    "images": ["img/5.jpg", "img/6.jpg"]
+  }
+]

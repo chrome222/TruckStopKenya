@@ -122,13 +122,19 @@ document.addEventListener('DOMContentLoaded', async function () {
     const selectedType = typeFilter.value;
     const selectedPrice = priceFilter.value;
     updateURLParams(selectedType, selectedPrice);
-    const filtered = trucks.filter(truck => {
-      if (selectedType !== 'all' && truck.type !== selectedType) return false;
-      if (selectedPrice === '1' && truck.price >= 1000000) return false;
-      if (selectedPrice === '2' && (truck.price < 1000000 || truck.price > 2000000)) return false;
-      if (selectedPrice === '3' && truck.price <= 2000000) return false;
-      return true;
-    });
+    
+    let filtered = trucks;
+    if (selectedType !== 'all') {
+      filtered = filtered.filter(truck => truck.type === selectedType);
+    }
+    if (selectedPrice === '1') {
+      filtered = filtered.filter(truck => truck.price < 1000000);
+    } else if (selectedPrice === '2') {
+      filtered = filtered.filter(truck => truck.price >= 1000000 && truck.price <= 2000000);
+    } else if (selectedPrice === '3') {
+      filtered = filtered.filter(truck => truck.price > 2000000);
+    }
+    
     currentPage = 1;
     displayTrucks(filtered);
   }

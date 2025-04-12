@@ -227,6 +227,20 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   });
 
+  // Back to Top Button Functionality
+  window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    if (window.scrollY > 200) {
+      backToTop.classList.remove('hidden');
+    } else {
+      backToTop.classList.add('hidden');
+    }
+  });
+
+  document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   // Initial load of truck data
   await loadTrucks();
 });
